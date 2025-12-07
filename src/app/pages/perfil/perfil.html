@@ -1,4 +1,71 @@
+<div class="container py-5">
+  
+  <div class="text-center mb-4">
+    <img src="https://via.placeholder.com/150" alt="Foto de perfil" class="rounded-circle shadow mb-3" width="150" height="150" style="object-fit: cover; border: 4px solid white;">
+    
+    <h2 class="fw-bold">Ingeniero Software</h2>
+    <p class="text-muted">Estudiante y Desarrollador Web</p>
+  </div>
 
-<div class="text-center">
-  <img src="assets/6819113.png" class="rounded" alt="...">
+  <div class="card text-center shadow-sm">
+    <div class="card-header">
+      
+      <ul class="nav nav-tabs card-header-tabs" id="perfilTabs" role="tablist">
+        
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active fw-bold" id="cursos-tab" data-bs-toggle="tab" data-bs-target="#cursos" type="button" role="tab" aria-controls="cursos" aria-selected="true">
+            Mis cursos
+          </button>
+        </li>
+        
+        <li class="nav-item" role="presentation">
+          <button class="nav-link fw-bold" id="publicaciones-tab" data-bs-toggle="tab" data-bs-target="#publicaciones" type="button" role="tab" aria-controls="publicaciones" aria-selected="false">
+            Mis publicaciones
+          </button>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="card-body text-start p-4">
+      
+      <div class="tab-content" id="perfilTabsContent">
+        
+        <div class="tab-pane fade show active" id="cursos" role="tabpanel" aria-labelledby="cursos-tab">
+          <h5 class="card-title mb-3">Cursos inscritos</h5>
+          
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              <div>
+                <div class="fw-bold">Curso de Desarrollo Web</div>
+                <small class="text-muted">Progreso: 45%</small>
+              </div>
+              <span class="badge bg-primary rounded-pill">Continuar</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              <div>
+                <div class="fw-bold">Probabilidad y Estadística</div>
+                <small class="text-muted">Progreso: 10%</small>
+              </div>
+              <span class="badge bg-primary rounded-pill">Continuar</span>
+            </a>
+          </div>
+          
+          <div class="mt-3 text-center">
+            <a href="#" class="btn btn-outline-primary btn-sm">Ver todos los cursos</a>
+          </div>
+        </div>
+        
+        <div class="tab-pane fade" id="publicaciones" role="tabpanel" aria-labelledby="publicaciones-tab">
+          <h5 class="card-title mb-3">Actividad reciente</h5>
+          <p class="card-text text-muted">Aún no has realizado ninguna publicación en el foro.</p>
+          <div class="text-center mt-4">
+             <a href="#" class="btn btn-primary">Crear nueva publicación</a>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
 </div>
