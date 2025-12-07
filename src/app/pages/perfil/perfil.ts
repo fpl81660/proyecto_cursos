@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Navbar } from '../../shared/navbar/navbar';
+import { Autentificación } from '../../services/autentificación';
 
 @Component({
   selector: 'app-perfil',
@@ -9,5 +10,5 @@ import { Navbar } from '../../shared/navbar/navbar';
   styleUrl: './perfil.scss',
 })
 export class Perfil {
-
+  public auth = inject(Autentificación);
 }
