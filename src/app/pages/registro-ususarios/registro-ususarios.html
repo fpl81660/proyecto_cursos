@@ -1,0 +1,79 @@
+<p>registro-ususarios works!</p>
+<div class="d-flex justify-content-center align-items-center py-5 bg-light" style="min-height: 100vh;">
+  
+  <div class="card shadow-lg border-0 rounded-4" style="width: 100%; max-width: 500px;">
+    <div class="card-body p-5">
+      
+      <h2 class="text-center fw-bold mb-2 text-primary">Crear Cuenta</h2>
+      <p class="text-center text-muted mb-4">Únete a nuestra comunidad de aprendizaje</p>
+      
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        
+        <div class="mb-3">
+          <label  class="form-label fw-semibold">Nombre de usuario</label>
+          <div class="input-group">
+            <span class="input-group-text bg-white text-muted border-end-0">
+              <i class="bi bi-person"></i>
+            </span>
+            <input type="text" class="form-control border-start-0 ps-0" name="nombre" placeholder="Ej. DevMaster2025" required  [(ngModel)]="model.nombre" #nombre="ngModel">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label  class="form-label fw-semibold">Correo electrónico</label>
+          <div class="input-group">
+            <span class="input-group-text bg-white text-muted border-end-0">
+              <i class="bi bi-envelope"></i>
+            </span>
+            <input type="email" class="form-control border-start-0 ps-0" name="correo" placeholder="correo@ejemplo.com" required  [(ngModel)]="model.correo" #correo="ngModel">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label  class="form-label fw-semibold">País</label>
+          <div class="input-group">
+            <span class="input-group-text bg-white text-muted border-end-0">
+              <i class="bi bi-globe-americas"></i>
+            </span>
+            <select class="form-select border-start-0 ps-0" name="pais" required  [(ngModel)]="model.pais" #pais="ngModel">
+              <option value="" selected disabled>Selecciona tu país...</option>
+              <option value="MX">México</option>
+              <option value="CO">Colombia</option>
+              <option value="AR">Argentina</option>
+              <option value="ES">España</option>
+              <option value="PE">Perú</option>
+              <option value="CL">Chile</option>
+              </select>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label fw-semibold">Contrasena</label>
+          <div class="input-group">
+            <span class="input-group-text bg-white text-muted border-end-0">
+              <i class="bi bi-lock"></i>
+            </span>
+            <input type="password" class="form-control border-start-0 ps-0" name="contrasena" placeholder="Crea una contrasena segura" required  [(ngModel)]="model.contrasena" #contrasena="ngModel">
+          </div>
+          <div class="form-text text-muted small">
+            Debe tener al menos 8 caracteres.
+          </div>
+        </div>
+
+
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary py-2 fw-bold shadow-sm rounded-3">
+            Registrarse
+          </button>
+        </div>
+        
+        <div class="text-center mt-4">
+          <span class="text-muted small">¿Ya tienes cuenta?</span>
+          <a href="/inicio-sesion" class="text-decoration-none fw-bold small ms-1">Inicia sesión aquí</a>
+        </div>
+
+      </form>
+      
+    </div>
+  </div>
+</div>
