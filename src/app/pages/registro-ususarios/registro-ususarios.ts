@@ -1,10 +1,8 @@
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core'; // Importamos inject
+import { Component, inject } from '@angular/core'; 
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-// Importa tu servicio (asegúrate que la ruta sea correcta)
-import { Autentificación } from '../../services/autentificación'; // Ajusta la ruta si es necesario
-
+import { Autentificación } from '../../services/autentificación'; 
 @Component({
   selector: 'app-registro-ususarios',
   standalone: true,
@@ -21,7 +19,7 @@ export class RegistroUsusarios {
     foto_perfil: 'assets/default.webp' // Imagen por defecto
   };
 
-  private apiUrl = 'http://localhost:3000/RegistroUsuario';
+  private apiUrl = 'http://localhost:3000/registrousuario/RegistroUsuario';
   
   private authService = inject(Autentificación);
 
@@ -40,7 +38,7 @@ export class RegistroUsusarios {
         this.authService.login(this.model); 
 
         form.resetForm();
-        this.router.navigate(['/perfil']); 
+        this.router.navigate(['/inicio']); 
       },
       error: (err) => {
         console.log("Transacción fallida");
