@@ -23,7 +23,6 @@ export class DetalleCurso implements OnInit {
   private apiUrl = 'http://localhost:3000/cursos';
 
   ngOnInit() {
-    // Obtener el ID de la URL
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.obtenerCurso(id);

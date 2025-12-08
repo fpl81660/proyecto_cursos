@@ -6,8 +6,10 @@ import { Carrito } from './pages/carrito/carrito';
 import { RegistroUsusarios } from './pages/registro-ususarios/registro-ususarios';
 import { SubirCursos } from './pages/subir-cursos/subir-cursos';
 import { DetalleCurso } from './pages/detalle-curso/detalle-curso';
+import { Pago } from './pages/pago/pago';
+
 export const routes: Routes = [
-     {path:"",component:Perfil},
+     {path:"",component:Inicio},
     {path:"inicio-sesion",component:InicioSesion},
     {path:"perfil",component:Perfil},
     {path:"inicio", component:Inicio},
@@ -15,5 +17,6 @@ export const routes: Routes = [
     {path:"registro-usuarios", component:RegistroUsusarios},
     {path:"subir-cursos", component:SubirCursos},
     { path: "curso/:id", component: DetalleCurso },
+    { path: "pago", component: Pago },
     {path:"**", redirectTo:""}
 ];

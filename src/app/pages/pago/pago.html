@@ -1,0 +1,89 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    
+    <div class="col-lg-6">
+      
+      <div class="card shadow-lg border-0 rounded-4">
+        
+        <div class="card-header bg-white border-0 pt-4 pb-2 px-4 d-flex justify-content-between align-items-center">
+          <h4 class="fw-bold text-primary mb-0">Detalles de Pago</h4>
+          <div class="text-muted">
+            <i class="bi bi-credit-card-2-front fs-4 me-2"></i>
+            <i class="bi bi-paypal fs-4 me-2"></i>
+            <i class="bi bi-wallet2 fs-4"></i>
+          </div>
+        </div>
+
+        <div class="card-body p-4 pt-2">
+          
+          <div class="alert alert-light border-0 d-flex align-items-center mb-4" role="alert">
+            <i class="bi bi-shield-lock-fill text-success fs-4 me-3"></i>
+            <div class="small text-muted">
+              Tus datos están protegidos con encriptación SSL de 256 bits.
+            </div>
+          </div>
+
+          <form>
+            
+            <div class="mb-4">
+              <label for="cardName" class="form-label fw-bold text-secondary small text-uppercase">Nombre del Titular</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-person"></i></span>
+                <input type="text" class="form-control border-start-0" id="cardName" placeholder="Como aparece en la tarjeta" required>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label for="cardNumber" class="form-label fw-bold text-secondary small text-uppercase">Número de Tarjeta</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-credit-card"></i></span>
+                <input type="text" class="form-control border-start-0" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19" required>
+                <span class="input-group-text bg-white border-start-0 text-primary"><i class="bi bi-check-circle-fill"></i></span>
+              </div>
+            </div>
+
+            <div class="row mb-4">
+              
+              <div class="col-md-6 mb-3 mb-md-0">
+                <label for="cardExpiry" class="form-label fw-bold text-secondary small text-uppercase">Vencimiento</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-calendar-event"></i></span>
+                  <input type="text" class="form-control border-start-0" id="cardExpiry" placeholder="MM/YY" maxlength="5" required>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="cardCvv" class="form-label fw-bold text-secondary small text-uppercase">CVV / CVC</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-lock"></i></span>
+                  <input type="password" class="form-control border-start-0" id="cardCvv" placeholder="123" maxlength="4" required>
+                  <span class="input-group-text bg-white border-start-0 cursor-pointer" title="Ver código">
+                    <i class="bi bi-question-circle text-muted small"></i>
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-4 pt-2 border-top">
+              <span class="fw-bold">Total a pagar:</span>
+              <span class="fs-4 fw-bold text-primary">$552.00 MXN</span>
+            </div>
+
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary py-3 fw-bold shadow rounded-3">
+                Confirmar Pago <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+      
+      <div class="text-center mt-3 text-muted small">
+        <i class="bi bi-lock-fill"></i> Pagos procesados de forma segura
+      </div>
+
+    </div>
+  </div>
+</div>
