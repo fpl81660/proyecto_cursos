@@ -4,6 +4,7 @@ import { InicioSesion } from './pages/inicio-sesion/inicio-sesion';
 import { Inicio } from './pages/inicio/inicio';
 import { Carrito } from './pages/carrito/carrito';
 import { RegistroUsusarios } from './pages/registro-ususarios/registro-ususarios';
+import { SubirCursos } from './pages/subir-cursos/subir-cursos';
 
 export const routes: Routes = [
      {path:"",component:Perfil},
@@ -12,5 +13,6 @@ export const routes: Routes = [
     {path:"inicio", component:Inicio},
     {path:"carrito", component:Carrito},
     {path:"registro-usuarios", component:RegistroUsusarios},
+    {path:"subir-cursos", component:SubirCursos},
     {path:"**", redirectTo:""}
 ];

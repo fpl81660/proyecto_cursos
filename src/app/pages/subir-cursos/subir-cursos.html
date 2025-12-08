@@ -1,1 +1,67 @@
-<p>subir-cursos works!</p>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      
+      <div class="card shadow-lg border-0 rounded-4">
+        
+        <div class="card-header bg-white border-0 pt-4 pb-0 px-5 text-center">
+          <h2 class="fw-bold text-primary">Publicar Nuevo Curso</h2>
+          <p class="text-muted">Completa la información para que tus estudiantes empiecen a aprender.</p>
+        </div>
+
+        <div class="card-body p-5">
+          <form action="/crear-curso" method="POST" enctype="multipart/form-data">
+            
+            <input type="hidden" name="idcreador" value="1"> 
+
+            <div class="mb-4">
+              <label for="titulo" class="form-label fw-bold">Título del Curso</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light text-muted border-end-0">
+                  <i class="bi bi-book"></i>
+                </span>
+                <input type="text" class="form-control border-start-0" id="titulo" name="titulo" maxlength="150" placeholder="Ej. Curso Profesional de Node.js y MySQL" required>
+              </div>
+            </div>
+
+            <div class="row mb-4">
+              
+              <div class="col-md-6 mb-3 mb-md-0">
+                <label for="precio" class="form-label fw-bold">Precio (MXN)</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light text-muted border-end-0">
+                    <i class="bi bi-currency-dollar"></i>
+                  </span>
+                  <input type="number" class="form-control border-start-0" id="precio" name="precio" step="0.01" min="0" placeholder="0.00" required>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="foto" class="form-label fw-bold">Imagen de portada</label>
+                <input type="file" class="form-control" id="foto" name="foto" accept="image/png, image/jpeg, image/jpg" required>
+                <div class="form-text small">Formatos: PNG, JPG. Máx 2MB.</div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label for="descripcion" class="form-label fw-bold">Descripción Corta</label>
+              <textarea class="form-control" id="descripcion" name="descripcion" rows="4" maxlength="255" placeholder="Resume de qué trata el curso en pocas palabras..." required></textarea>
+              <div class="d-flex justify-content-end">
+                <small class="text-muted">Máximo 255 caracteres</small>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mt-4">
+              <a href="#" class="text-decoration-none text-muted fw-semibold">Cancelar</a>
+              <button type="submit" class="btn btn-primary px-5 py-2 fw-bold shadow-sm rounded-3">
+                <i class="bi bi-cloud-upload me-2"></i> Publicar Curso
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
