@@ -16,7 +16,7 @@ export class RegistroUsusarios {
     correo: '',
     contrasena: '',
     pais: '',
-    foto_perfil: 'assets/default.webp' // Imagen por defecto
+    foto_perfil: 'assets/default.webp' 
   };
 
   private apiUrl = 'http://localhost:3000/registrousuario/RegistroUsuario';
