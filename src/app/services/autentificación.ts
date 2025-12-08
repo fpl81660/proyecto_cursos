@@ -1,6 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 
 export interface Usuario {
+  idUsuario?: number;
   nombre: string;
   correo: string;
   pais: string;

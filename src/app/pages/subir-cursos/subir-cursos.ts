@@ -6,7 +6,7 @@ import { Autentificación } from '../../services/autentificación';
 
 @Component({
   selector: 'app-subir-cursos',
-  standalone: true, // Asegúrate que sea standalone si tu proyecto lo es
+  standalone: true, 
   imports: [FormsModule],
   templateUrl: './subir-cursos.html',
   styleUrl: './subir-cursos.scss',
@@ -19,17 +19,14 @@ export class SubirCursos {
     usuarios_inscritos: 0
   };
   
-  // Variable para guardar el archivo seleccionado
   selectedFile: File | null = null;
 
-  // Cambia esto a la ruta correcta de tu backend (sin /crear-curso si usas el Router como base)
   private apiUrl = 'http://localhost:3000/cursos'; 
   
   private http = inject(HttpClient);
   private router = inject(Router);
-  public auth = inject(Autentificación); // Para obtener el ID del usuario
+  public auth = inject(Autentificación); 
 
-  // Función que se ejecuta cuando el usuario selecciona un archivo
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
   }
@@ -39,27 +36,28 @@ export class SubirCursos {
       return;
     }
 
-    // 1. Crear un objeto FormData
+    const usuarioActual = this.auth.currentUser();
+    if (!usuarioActual || !usuarioActual.idUsuario) {
+      alert("Error: No se pudo identificar al usuario creador. Por favor, inicia sesión nuevamente.");
+      return;
+    }
     const formData = new FormData();
     
-    // 2. Agregar los campos de texto
-    // Usamos el ID del usuario logueado o '1' por defecto si no hay sesión (para pruebas)
-    const idCreador = this.auth.currentUser()?.nombre || '1'; // OJO: Tu tabla pide INT, asegúrate de mandar el ID, no el nombre.
-    // Si tu servicio de auth no tiene ID, necesitarás agregarlo. Asumiremos '1' por ahora.
     
-    formData.append('idcreador', '1'); 
-    formData.append('titulo', this.model.titulo);
+    const idCreador = this.auth.currentUser()?.nombre || '1'; 
+    
+formData.append('idcreador', usuarioActual.idUsuario.toString());    formData.append('titulo', this.model.titulo);
     formData.append('descripcion', this.model.descripcion);
     formData.append('precio', this.model.precio.toString());
     formData.append('usuarios_inscritos', '0');
 
-    // 3. Agregar el archivo (si existe)
+    
     if (this.selectedFile) {
-      // 'foto' debe coincidir con upload.single('foto') del backend
+    
       formData.append('foto', this.selectedFile);
     }
 
-    // 4. Enviar al backend (No hace falta setear Headers, Angular lo hace automático con FormData)
+    
     this.http.post(this.apiUrl, formData).subscribe({
       next: (res) => {
         console.log("Curso creado exitosamente");
