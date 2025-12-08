@@ -14,6 +14,6 @@ export const routes: Routes = [
     {path:"carrito", component:Carrito},
     {path:"registro-usuarios", component:RegistroUsusarios},
     {path:"subir-cursos", component:SubirCursos},
-    {path:"detalle-curso/:id", component:DetalleCurso},
+    { path: "curso/:id", component: DetalleCurso },
     {path:"**", redirectTo:""}
 ];
