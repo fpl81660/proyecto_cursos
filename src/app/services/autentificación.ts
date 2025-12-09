@@ -1,7 +1,8 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface Usuario {
-  idUsuario?: number;
+  idUsuario: number;
   nombre: string;
   correo: string;
   pais: string;
@@ -13,8 +14,10 @@ export interface Usuario {
   providedIn: 'root',
 })
 export class Autentificación {
-  
+
   currentUser = signal<Usuario | null>(null);
+
+  private router = inject(Router);
 
   constructor() {
 
@@ -36,5 +39,6 @@ export class Autentificación {
   logout() {
     this.currentUser.set(null);
     localStorage.removeItem('usuario_sesion');
+    this.router.navigate(['/inicio']);
   }
 }

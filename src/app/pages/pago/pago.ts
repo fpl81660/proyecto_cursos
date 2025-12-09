@@ -34,13 +34,13 @@ export class Pago {
       return;
     }
 
-    const payload = {
-      usuario_id: usuario.idUsuario,
+    const datosParaBaseDeDatos = {
+      usuario_id: usuario.idUsuario, 
       cursos: this.carritoService.items(),
-      metodo_pago: 'Tarjeta Crédito/Débito' 
+      metodo_pago: 'Tarjeta de Crédito'
     };
 
-    this.http.post('http://localhost:3000/usuario/comprar', payload).subscribe({
+    this.http.post('http://localhost:3000/usuario/comprar', datosParaBaseDeDatos).subscribe({
       next: (res) => {
         alert("¡Compra realizada con éxito!");
         this.carritoService.limpiarCarrito();

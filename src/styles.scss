@@ -1,3 +1,94 @@
-/* You can add global styles to this file, and also import other style files */
+$course-1: #1CE690;
+$course-2: #1CB5E6;
+$course-3: #1CE6D5;
+$course-4: #1CE64B;
+$course-5: #1C76E6;
+$course-6: #00E5D3;
+
+
+$primary: $course-1;
+$secondary: $course-2;
+$success: $course-4;
+$info: $course-3;
+$warning: $course-6;
+$danger: #dc3545;
+$light: #f8f9fa;
+
 @import "bootstrap/scss/bootstrap";
 @import 'bootstrap-icons/font/bootstrap-icons.css';
+
+
+
+.course-1-hex {
+    color: #1CE690;
+}
+
+.course-2-hex {
+    color: #1CB5E6;
+}
+
+.course-3-hex {
+    color: #1CE6D5;
+}
+
+.course-4-hex {
+    color: #1CE64B;
+}
+
+.course-5-hex {
+    color: #1C76E6;
+}
+
+.course-6-hex {
+    color: #00E5D3;
+}
+
+
+.course-1-rgba {
+    color: rgba(28, 230, 144, 1);
+}
+
+.course-2-rgba {
+    color: rgba(28, 181, 230, 1);
+}
+
+.course-3-rgba {
+    color: rgba(28, 230, 213, 1);
+}
+
+.course-4-rgba {
+    color: rgba(28, 230, 75, 1);
+}
+
+.course-5-rgba {
+    color: rgba(28, 118, 230, 1);
+}
+
+.course-6-rgba {
+    color: rgba(0, 229, 211, 1);
+}
+
+
+.course-1-hsla {
+    color: hsla(154, 80, 50, 1);
+}
+
+.course-2-hsla {
+    color: hsla(194, 80, 50, 1);
+}
+
+.course-3-hsla {
+    color: hsla(174, 80, 50, 1);
+}
+
+.course-4-hsla {
+    color: hsla(133, 80, 50, 1);
+}
+
+.course-5-hsla {
+    color: hsla(213, 80, 50, 1);
+}
+
+.course-6-hsla {
+    color: hsla(175, 100, 44, 1);
+}

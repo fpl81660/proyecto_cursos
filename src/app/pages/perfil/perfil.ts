@@ -23,10 +23,9 @@ export class Perfil implements OnInit {
 
   ngOnInit() {
     const usuario = this.auth.currentUser();
-    const usuarioId = (usuario as any)?.id;
-
-    if (usuarioId) {
-      this.cargarDatos(usuarioId);
+    
+    if (usuario && usuario.idUsuario) {
+      this.cargarDatos(usuario.idUsuario);
     }
   }
 

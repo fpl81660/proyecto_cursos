@@ -1,69 +1,76 @@
-<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
-  <div class="container-fluid">
-    
-    <a class="navbar-brand d-flex align-items-center fw-bold" routerLink="/inicio">
-      <img src="assets/6819113.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2 rounded">
-      EduPlatform
+<nav class="navbar navbar-expand-lg bg-dark shadow-sm sticky-top">
+  <div class="container">
+
+    <a class="navbar-brand d-flex align-items-center fw-bold text-primary" routerLink="/inicio">
+      <img src="assets/logo_final sin fondo.png" alt="Logo" width="35" height="35"
+        class="d-inline-block align-text-top me-2 rounded">
+      Course
     </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <i class="bi bi-list fs-1"></i>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarContent">
-      
-      <form class="d-flex my-2 my-lg-0 me-auto ms-lg-3" role="search">
-        <div class="input-group">
-          <input class="form-control" type="search" placeholder="Buscar cursos..." aria-label="Search">
-          <button class="btn btn-outline-primary" type="submit">
-            <i class="bi bi-search"></i>
-          </button>
-        </div>
-      </form>
 
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-  
-  @if (!auth.currentUser()) {
-    <li class="nav-item me-3">
-      <a class="nav-link fw-semibold" routerLink="/inicio-sesion">Iniciar sesión</a>
-    </li>
-    
-    <li class="nav-item me-3">
-      <a class="nav-link fw-semibold" routerLink="/registro-usuarios">Registrarse</a>
-    </li>
-  } 
-  
-  @else {
-    <li class="nav-item me-3">
-      <a class="nav-link position-relative" routerLink="/carrito">
-        <i class="bi bi-cart fs-5"></i>
-        <span class="position-absolute top-10 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.7rem;">
-          3
-        </span>
-      </a>
-    </li>
-<li class="nav-item dropdown d-flex align-items-center gap-2">
-      <a class="nav-link p-0" routerLink="/subir-cursos" role="button"> subir cursos </a>
-    </li>
-    <li class="nav-item dropdown d-flex align-items-center gap-2">
-      <a class="nav-link p-0" routerLink="/pago" role="button"> pagar </a>
-    </li>
-    <li class="nav-item dropdown d-flex align-items-center gap-2">
-      <span class="fw-semibold">{{ auth.currentUser()?.nombre }}</span>
-      
-      <a class="nav-link p-0" routerLink="/perfil" role="button">
-        <img [src]="auth.currentUser()?.foto_perfil || 'assets/default.webp'" 
-             alt="Perfil" width="40" height="40" 
-             class="rounded-circle border border-2 border-primary" style="object-fit: cover;">
-      </a>
-      
-      <button class="btn btn-sm btn-outline-danger ms-2" (click)="auth.logout()">
-        <i class="bi bi-box-arrow-right"></i>
-      </button>
-    </li>
-  }
 
-</ul>
+      <ul class="navbar-nav ms-auto align-items-center gap-3">
+
+        @if (!auth.currentUser()) {
+        <li class="nav-item">
+          <a class="nav-link fw-semibold text-white" routerLink="/inicio-sesion">Iniciar sesión</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="btn btn-light fw-bold rounded-pill px-4 text-primary"
+            routerLink="/registro-usuarios">Registrarse</a>
+        </li>
+        }
+
+        @else {
+
+        <li class="nav-item">
+          <a class="nav-link text-white fw-semibold" routerLink="/subir-cursos">Subir cursos</a>
+        </li>
+
+        <li class="nav-item position-relative">
+          <a class="nav-link text-white" routerLink="/carrito">
+            <i class="bi bi-cart3 fs-4"></i>
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger shadow-sm border border-white"
+              style="font-size: 0.6rem;">
+              {{ carrito.count() }}
+            </span>
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img [src]="auth.currentUser()?.foto_perfil || 'assets/default.webp'" alt="Perfil" width="40" height="40"
+              class="rounded-circle border border-2 border-white shadow-sm" style="object-fit: cover;">
+            <span class="d-lg-none text-white fw-bold">{{ auth.currentUser()?.nombre }}</span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg p-2 rounded-4 mt-2">
+            <li class="px-3 py-2 border-bottom mb-2">
+              <span class="fw-bold d-block text-truncate" style="max-width: 200px;">{{ auth.currentUser()?.nombre
+                }}</span>
+              <small class="text-muted">{{ auth.currentUser()?.correo }}</small>
+            </li>
+            <li><a class="dropdown-item rounded-3" routerLink="/perfil"><i class="bi bi-person me-2"></i> Mi Perfil</a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><button class="dropdown-item text-danger rounded-3" (click)="auth.logout()"><i
+                  class="bi bi-box-arrow-right me-2"></i> Cerrar Sesión</button></li>
+          </ul>
+        </li>
+        }
+
+      </ul>
     </div>
   </div>
 </nav>

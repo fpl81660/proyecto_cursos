@@ -5,30 +5,45 @@
       <div class="card shadow-sm">
         <div class="card-body p-4">
           <h4 class="mb-3">Total a pagar: MX$ {{ carritoService.total() }}</h4>
-          
-          <form (ngSubmit)="procesarPago()">
+
+          <form (ngSubmit)="procesarPago()" #payForm="ngForm">
             <div class="mb-3">
               <label class="form-label">Nombre en la tarjeta</label>
-              <input type="text" class="form-control" [(ngModel)]="datosPago.nombreTarjeta" name="nombre" required>
+              <input type="text" class="form-control" [(ngModel)]="datosPago.nombreTarjeta" name="nombre" required
+                #nombre="ngModel">
+              <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="text-danger small">
+                El nombre es requerido.
+              </div>
             </div>
             <div class="mb-3">
               <label class="form-label">Número de tarjeta</label>
-              <input type="text" class="form-control" [(ngModel)]="datosPago.numeroTarjeta" name="numero" placeholder="0000 0000 0000 0000" required>
+              <input type="text" class="form-control" [(ngModel)]="datosPago.numeroTarjeta" name="numero"
+                placeholder="0000 0000 0000 0000" required #numero="ngModel">
+              <div *ngIf="numero.invalid && (numero.dirty || numero.touched)" class="text-danger small">
+                El número es requerido.
+              </div>
             </div>
             <div class="row">
               <div class="col-6 mb-3">
                 <label class="form-label">Expiración (MM/YY)</label>
-                <input type="text" class="form-control" [(ngModel)]="datosPago.expiracion" name="exp" required>
+                <input type="text" class="form-control" [(ngModel)]="datosPago.expiracion" name="exp" required
+                  #exp="ngModel">
+                <div *ngIf="exp.invalid && (exp.dirty || exp.touched)" class="text-danger small">
+                  Requerido.
+                </div>
               </div>
               <div class="col-6 mb-3">
                 <label class="form-label">CVV</label>
-                <input type="text" class="form-control" [(ngModel)]="datosPago.cvv" name="cvv" required>
+                <input type="text" class="form-control" [(ngModel)]="datosPago.cvv" name="cvv" required #cvv="ngModel">
+                <div *ngIf="cvv.invalid && (cvv.dirty || cvv.touched)" class="text-danger small">
+                  Requerido.
+                </div>
               </div>
             </div>
-            
-          <button class="btn btn-success py-2 fw-bold shadow-sm" routerLink="/pago">
-  Pagar Ahora
-</button>
+
+            <button type="submit" class="btn btn-success py-2 fw-bold shadow-sm w-100" [disabled]="!payForm.form.valid">
+              Pagar Ahora
+            </button>
           </form>
         </div>
       </div>

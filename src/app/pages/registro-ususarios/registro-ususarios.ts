@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Autentificación } from '../../services/autentificación'; 
+
 @Component({
   selector: 'app-registro-ususarios',
   standalone: true,
@@ -16,7 +17,7 @@ export class RegistroUsusarios {
     correo: '',
     contrasena: '',
     pais: '',
-    foto_perfil: 'assets/default.webp' 
+    foto_perfil: 'assets/default.webp'
   };
 
   private apiUrl = 'http://localhost:3000/registrousuario/RegistroUsuario';
@@ -30,18 +31,23 @@ export class RegistroUsusarios {
       return;
     }
 
-    this.http.post(this.apiUrl, this.model).subscribe({
+    this.http.post<any>(this.apiUrl, this.model).subscribe({
       next: (res) => {
-        console.log("Datos registrados de manera exitosa");
+        console.log("Datos registrados de manera exitosa", res);
         alert("Datos registrados de manera exitosa");
 
-        this.authService.login(this.model); 
+        const nuevoUsuario = {
+          ...this.model,          
+          idUsuario: res.idGenerado 
+        };
+
+        this.authService.login(nuevoUsuario); 
 
         form.resetForm();
         this.router.navigate(['/inicio']); 
       },
       error: (err) => {
-        console.log("Transacción fallida");
+        console.error("Error en registro:", err);
         alert("Transacción fallida");
       }
     });
